@@ -23,7 +23,7 @@ public class CommandFramework {
 
     public void registerAll() {
         final Server server = plugin.getServer();
-        final Reflections reflections = new Reflections("net.starvel.minas");
+        final Reflections reflections = new Reflections("me.syncwrld.cmdextensor.framework");
 
         Field commandField = null;
 
