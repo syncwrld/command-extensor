@@ -6,6 +6,7 @@ import org.bukkit.command.CommandMap;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.reflections.Reflections;
 
 import java.lang.reflect.Field;
@@ -16,14 +17,17 @@ import java.util.Set;
 public class CommandFramework {
 
     private final Plugin plugin;
+    private final Class<? extends JavaPlugin> mainClass;
 
-    public CommandFramework(Plugin plugin) {
+    public CommandFramework(Plugin plugin, Class<? extends JavaPlugin> mainClass, Class<? extends JavaPlugin> mainClass1) {
         this.plugin = plugin;
+        this.mainClass = mainClass1;
     }
 
     public void registerAll() {
         final Server server = plugin.getServer();
-        final Reflections reflections = new Reflections("me.syncwrld.cmdextensor.framework");
+        final String mainPackage = mainClass.getPackage().getName().replace("/", ".");
+        final Reflections reflections = new Reflections(mainPackage);
 
         Field commandField = null;
 
