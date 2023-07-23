@@ -39,10 +39,6 @@
                         </goals>
                         <configuration>
                             <relocations>
-                                <relocation>
-                                    <pattern></pattern>
-                                    <
-                                </relocation>
                             </relocations>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                         </configuration>
