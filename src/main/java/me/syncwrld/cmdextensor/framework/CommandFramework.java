@@ -12,16 +12,18 @@ import org.reflections.Reflections;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Set;
 
 public class CommandFramework {
 
     private final Plugin plugin;
     private final Class<? extends JavaPlugin> mainClass;
+    private final ArrayList<String> commands = new ArrayList<>();
 
-    public CommandFramework(Plugin plugin, Class<? extends JavaPlugin> mainClass, Class<? extends JavaPlugin> mainClass1) {
+    public CommandFramework(Plugin plugin, Class<? extends JavaPlugin> mainClass) {
         this.plugin = plugin;
-        this.mainClass = mainClass1;
+        this.mainClass = mainClass;
     }
 
     public void registerAll() {
@@ -71,11 +73,22 @@ public class CommandFramework {
             command = instantiateCommand(commandName, currentCommandClassExtended, method, limitConsole);
             commandMap.register(commandName, command);
 
+            commands.add(commandName);
+
             for (String currentAlias : commandAliasesArray) {
                 command = instantiateCommand(currentAlias, currentCommandClassExtended, method, limitConsole);
                 commandMap.register(currentAlias, command);
+                commands.add(currentAlias);
             }
         }
+    }
+
+    public ArrayList<String> getCommands() {
+        return commands;
+    }
+
+    public String getRootPackage() {
+        return mainClass.getPackage().getName();
     }
 
     private Command instantiateCommand(String command, Class<? extends SimpleCommand> extendedClassCommand, Method method, boolean limit) {
