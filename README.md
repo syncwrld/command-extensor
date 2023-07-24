@@ -2,6 +2,35 @@
 # CommandExtensor
 Uma framework de comando para Bukkit MUITO, mas MUITO fácil de usar.
 
+## Adicionando ao projeto
+
+#### Gradle
+```build
+  repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+
+   dependencies {
+	        implementation 'com.github.syncwrld:CommandExtensor:1.0-snapshot'
+	}
+```
+
+
+#### Maven
+```xml
+<repositories>
+	<repository>
+		<id>jitpack.io</id>
+		<url>https://jitpack.io</url>
+	</repository>
+</repositories>
+
+<dependency>
+	<groupId>com.github.syncwrld</groupId>
+	<artifactId>CommandExtensor</artifactId>
+</dependency>
+```
 
 ## Documentação da API
 
