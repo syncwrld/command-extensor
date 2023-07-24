@@ -5,7 +5,7 @@ Uma framework de comando para Bukkit MUITO, mas MUITO fácil de usar.
 ## Adicionando ao projeto
 
 #### Gradle
-```build
+```gradle
   repositories {
 			...
 			maven { url 'https://jitpack.io' }
