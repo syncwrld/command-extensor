@@ -9,6 +9,7 @@ Uma framework de comando para Bukkit MUITO, mas MUITO fácil de usar.
 
 ```java
   import me.syncwrld.cmdextensor.framework.SimpleCommand;
+  import me.syncwrld.cmdextensor.framework.CommandBuilder;
   
   @CommandBuilder(command = "comando1", aliases = {})
   public class MeuComando extends SimpleCommand {
@@ -30,6 +31,7 @@ No caso acima, o comando `/comando1` é criado, e quando acionado retorna se o C
 
 ```java
   import me.syncwrld.cmdextensor.framework.SimpleCommand;
+  import me.syncwrld.cmdextensor.framework.CommandBuilder;
   
   @CommandBuilder(command = "comando2", aliases = {"cmd2", "cmd3"})
   public class MeuComando extends SimpleCommand {
@@ -52,6 +54,7 @@ No caso acima, o comando `/comando2` é criado, e também pode ser executado uti
 
 ```java
   import me.syncwrld.cmdextensor.framework.SimpleCommand;
+  import me.syncwrld.cmdextensor.framework.CommandBuilder;
   
   @CommandBuilder(command = "expulsar", aliases = {"kick"}, onlyPlayers = true)
   public class MeuComando extends SimpleCommand {
@@ -66,7 +69,7 @@ No caso acima, o comando `/comando2` é criado, e também pode ser executado uti
                   "§4§lLothusPunish",
                   " §c/expulsar [jogador]",
                   "",
-              })
+              });
           } else {
               final String targetName = args[0];
               final Player target = Bukkit.getPlayerExact(targetName);
@@ -84,3 +87,19 @@ No caso acima, o comando `/comando2` é criado, e também pode ser executado uti
 ```
 No caso acima, o comando `/expulsar` é criado, e também pode ser executado utilizando `/kick` e pode ser executado apenas por jogadores, não por console.
 
+#### Registrando um comando
+
+```java
+import me.syncwrld.cmdextensor.framework.CommandFramework;
+
+public class MeuPlugin extends JavaPlugin {
+
+    @Override
+    public void onEnable() {
+        CommandFramework commandFramework = new CommandFramework(this, MeuPlugin.class);
+        commandFramework.registerAll();
+    }
+
+}
+```
+Após ter usado o método `registerAll`, todos os comandos que forem criados corretamente serão registrados automaticamente.
