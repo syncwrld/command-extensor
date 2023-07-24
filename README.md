@@ -7,12 +7,11 @@ Uma framework de comando para Bukkit MUITO, mas MUITO fácil de usar.
 #### Gradle
 ```gradle
   repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+		maven { url 'https://jitpack.io' }
+	}
 
    dependencies {
-	        implementation 'com.github.syncwrld:CommandExtensor:1.0-snapshot'
+	    implementation 'com.github.syncwrld:CommandExtensor:1.0-snapshot'
 	}
 ```
 
