@@ -127,7 +127,7 @@ public class MyPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        CommandFramework commandFramework = new CommandFramework(this, MeuPlugin.class);
+        CommandFramework commandFramework = new CommandFramework(this, MyPlugin.class);
         commandFramework.registerAll();
     }
 
