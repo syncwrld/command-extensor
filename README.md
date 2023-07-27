@@ -1,6 +1,6 @@
 ### [Versão em português da Wiki aqui](https://github.com/syncwrld/CommandExtensor/blob/main/git-assets/ptbr-wiki.md) ###
 # CommandExtensor
-A command framework for Bukkit that is VERY, and I mean VERY, easy to use.
+An easy-to-use Bukkit command-framework, compatible with all most-used minecraft server versions (1.8 - 1.20).
 
 ![CommandExtensor](https://socialify.git.ci/syncwrld/CommandExtensor/image?description=1&descriptionEditable=easy-to-use%20bukkit%20command%20framework%20&font=KoHo&forks=1&issues=1&language=1&name=1&owner=1&pattern=Solid&stargazers=1&theme=Dark)
 
