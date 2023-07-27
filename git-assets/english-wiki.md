@@ -1,4 +1,4 @@
-### [English version of Wiki here](https://github.com/syncwrld/CommandExtensor/git-assets/english-wiki.md) ###
+### [Versão em portugûes da Wiki aqui](https://github.com/syncwrld/CommandExtensor) ###
 # CommandExtensor
 A command framework for Bukkit that is VERY, and I mean VERY, easy to use.
 
