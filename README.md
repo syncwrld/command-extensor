@@ -1,4 +1,4 @@
-
+## [English version of Wiki here](https://github.com/syncwrld/command-extensor/git-assets/english-wiki.md) ##
 # CommandExtensor
 Uma framework de comando para Bukkit MUITO, mas MUITO fácil de usar.
 
@@ -30,6 +30,7 @@ dependencies {
 <dependency>
 	<groupId>com.github.syncwrld</groupId>
 	<artifactId>CommandExtensor</artifactId>
+        <version>1.0-snapshot</version>
 </dependency>
 ```
 
