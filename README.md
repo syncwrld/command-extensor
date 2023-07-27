@@ -1,10 +1,10 @@
-### [English version of Wiki here](https://github.com/syncwrld/CommandExtensor/blob/main/git-assets/english-wiki.md) ###
+### [Versão em português da Wiki aqui](https://github.com/syncwrld/CommandExtensor/blob/main/git-assets/ptbr-wiki.md) ###
 # CommandExtensor
-Uma framework de comando para Bukkit MUITO, mas MUITO fácil de usar.
+A command framework for Bukkit that is VERY, and I mean VERY, easy to use.
 
 ![CommandExtensor](https://socialify.git.ci/syncwrld/CommandExtensor/image?description=1&descriptionEditable=easy-to-use%20bukkit%20command%20framework%20&font=KoHo&forks=1&issues=1&language=1&name=1&owner=1&pattern=Solid&stargazers=1&theme=Dark)
 
-## Adicionando ao projeto
+## Adding into your project
 
 #### Gradle
 ```gradle
@@ -34,61 +34,61 @@ dependencies {
 </dependency>
 ```
 
-## Documentação da API
+## API Documentation
 
-#### Criando um comando
+#### Creating a command
 
 ```java
   import me.syncwrld.cmdextensor.framework.SimpleCommand;
   import me.syncwrld.cmdextensor.framework.CommandBuilder;
   
-  @CommandBuilder(command = "comando1", aliases = {})
-  public class MeuComando extends SimpleCommand {
+  @CommandBuilder(command = "command1", aliases = {})
+  public class MyCommand extends SimpleCommand {
 
       @Override
       public void runCommand(CommandSender commandSender, String[] args) {
         if (commandSender instanceof Player) {
-            commandSender.sendMessage("Você é um jogador");
+            commandSender.sendMessage("You are a player.");
         } else {
-            commandSender.sendMessage("Você não é um jogador.");
+            commandSender.sendMessage("You are not a player.");
         }
     }
 
   }
 ```
-No caso acima, o comando `/comando1` é criado, e quando acionado retorna se o CommandSender é um jogador ou um console.
+In above example, the `/command1` command is created, and when executed, it checks if the CommandSender is a player or the console.
 
-#### Criando um comando com aliases
+#### Creating a command with aliases
 
 ```java
   import me.syncwrld.cmdextensor.framework.SimpleCommand;
   import me.syncwrld.cmdextensor.framework.CommandBuilder;
   
-  @CommandBuilder(command = "comando2", aliases = {"cmd2", "cmd3"})
-  public class MeuComando extends SimpleCommand {
+  @CommandBuilder(command = "command2", aliases = {"cmd2", "cmd3"})
+  public class MyCommand extends SimpleCommand {
 
       @Override
       public void runCommand(CommandSender commandSender, String[] args) {
         if (!(commandSender.isOp())) {
-            commandSender.sendMessage("Apenas OP's podem executar este comando.");
+            commandSender.sendMessage("Only OP's can execute this command.");
         } else {
             final String name = (commandSender instanceof Player) ? ((Player) commandSender).getName()) : "Console";
-            commandSender.sendMessage(String.format("Salve, %s!", name));
+            commandSender.sendMessage(String.format("Hello, %s!", name));
         }
     }
 
   }
 ```
-No caso acima, o comando `/comando2` é criado, e também pode ser executado utilizando `/cmd2` ou `/cmd3`
+In the above example, the `/command2` command is created, and it can also be executed using `/cmd2` or `/cmd3`.
 
-#### Criando um comando apenas para jogadores
+#### Creating command that can be executed only by players
 
 ```java
   import me.syncwrld.cmdextensor.framework.SimpleCommand;
   import me.syncwrld.cmdextensor.framework.CommandBuilder;
   
-  @CommandBuilder(command = "expulsar", aliases = {"kick"}, onlyPlayers = true)
-  public class MeuComando extends SimpleCommand {
+  @CommandBuilder(command = "kickplayer", aliases = {"kick"}, onlyPlayers = true)
+  public class MyCommand extends SimpleCommand {
 
       @Override
       public void runCommand(CommandSender commandSender, String[] args) {
@@ -98,7 +98,7 @@ No caso acima, o comando `/comando2` é criado, e também pode ser executado uti
               player.sendMessage(new String[] {
                   "",
                   "§4§lLothusPunish",
-                  " §c/expulsar [jogador]",
+                  " §c/kickplayer [player]",
                   "",
               });
           } else {
@@ -106,24 +106,24 @@ No caso acima, o comando `/comando2` é criado, e também pode ser executado uti
               final Player target = Bukkit.getPlayerExact(targetName);
 
               if (target == null || (!(target.isOnline()))) {
-                  player.sendMessage(String.format("§cO jogador '%s' é inválido ou está offline.", targetName));
+                  player.sendMessage(String.format("§cThe player '%s' is invalid or offline.", targetName));
                   return;
               }
 
-              player.kickPlayer("§4§lLOTHUSPUNISH! §cVocê foi expulso pelo staff " + player.getName() + "!");
+              player.kickPlayer("§4§lLOTHUSPUNISH! §cYou have been kicked by staff " + player.getName() + "!");
           }
       }
 
   }
 ```
-No caso acima, o comando `/expulsar` é criado, e também pode ser executado utilizando `/kick` e pode ser executado apenas por jogadores, não por console.
+In the above example, the `/kickplayer` command is created, and it can also be executed using `/kick`, but only by players, not by the console.
 
-#### Registrando um comando
+#### Registering commands
 
 ```java
 import me.syncwrld.cmdextensor.framework.CommandFramework;
 
-public class MeuPlugin extends JavaPlugin {
+public class MyPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
@@ -133,4 +133,4 @@ public class MeuPlugin extends JavaPlugin {
 
 }
 ```
-Após ter usado o método `registerAll`, todos os comandos que forem criados corretamente serão registrados automaticamente.
+After using the `registerAll` method, all correctly created commands will be automatically registered.
